@@ -1,298 +1,324 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Вадим Токаев — Тренер по вольной борьбе | GM GYM</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-main: #0b0d10;
-    --bg-card: rgba(22, 27, 34, 0.75);
-    --accent: #e63946;
-    --accent-glow: rgba(230, 57, 70, 0.4);
-    --gold: #d4af37;
-    --text-primary: #f0f6fc;
-    --text-muted: #8b949e;
-    --border: rgba(255, 255, 255, 0.1);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вадим Токаев — Тренер по вольной борьбе | GM GYM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #0b0d10;
+      --bg-card: rgba(22, 27, 34, 0.75);
+      --accent: #e63946;
+      --accent-glow: rgba(230, 57, 70, 0.4);
+      --gold: #d4af37;
+      --gold-glow: rgba(212, 175, 55, 0.25);
+      --text-primary: #f0f6fc;
+      --text-muted: #8b949e;
+      --border: rgba(255, 255, 255, 0.1);
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* Навигация */
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(11, 13, 16, 0.85);
-    border-bottom: 1px solid var(--border);
-    z-index: 100;
-  }
-  .logo { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
-  .logo span { color: var(--accent); }
-  .nav-btn {
-    background: var(--accent);
-    color: #fff;
-    padding: 9px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px var(--accent-glow);
-  }
-  .nav-btn:hover { background: #ff4d5a; transform: translateY(-2px); }
+    /* Навигация */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(11, 13, 16, 0.85);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    .logo { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
+    .logo span { color: var(--accent); }
+    .nav-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+    .nav-btn:hover { background: #ff4d5a; transform: translateY(-2px); }
 
-  /* Hero Секция */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 70px 8% 60px;
-    gap: 40px;
-    min-height: 85vh;
-  }
-  .hero-content { flex: 1.2; }
-  .badge {
-    display: inline-block;
-    background: rgba(230, 57, 70, 0.15);
-    border: 1px solid var(--accent);
-    color: #ff6b76;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 4.2rem);
-    text-transform: uppercase;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-  h1 span {
-    background: linear-gradient(90deg, #ffffff, var(--text-muted));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .hero-sub {
-    font-size: 1.15rem;
-    color: var(--text-muted);
-    max-width: 520px;
-    margin-bottom: 35px;
-  }
-  .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
-  .btn-main {
-    background: var(--accent);
-    color: #fff;
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 6px 20px var(--accent-glow);
-  }
-  .btn-main:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6); }
-  .btn-outline {
-    border: 1px solid var(--border);
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-  .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
+    /* Hero Секция */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 70px 8% 60px;
+      gap: 40px;
+      min-height: 85vh;
+    }
+    .hero-content { flex: 1.2; }
+    .badge {
+      display: inline-block;
+      background: rgba(230, 57, 70, 0.15);
+      border: 1px solid var(--accent);
+      color: #ff6b76;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    h1 span {
+      background: linear-gradient(90deg, #ffffff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 35px;
+    }
+    .hero-actions { display: flex; gap: 15px; flex-wrap: wrap; }
+    .btn-main {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+    .btn-main:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
 
-  /* Фото в Hero */
-  .hero-img-wrap {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  .hero-img-frame {
-    position: relative;
-    width: 380px;
-    height: 480px;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  }
-  .hero-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(20%) contrast(110%);
-    transition: 0.4s ease;
-  }
-  .hero-img-frame:hover img { filter: grayscale(0%); transform: scale(1.03); }
-  .floating-tag {
+    /* Фото тренера в Hero */
+    .hero-img-wrap {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-img-frame {
+      position: relative;
+      width: 380px;
+      height: 480px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%) contrast(105%);
+      transition: 0.4s ease;
+    }
+    .hero-img-frame:hover img { filter: grayscale(0%); transform: scale(1.03); }
+    .floating-tag {
+      position: absolute;
+      bottom: 20px;
+      left: -20px;
+      background: rgba(18, 22, 28, 0.95);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .floating-tag strong { display: block; font-size: 1.1rem; color: #fff; }
+    .floating-tag span { font-size: 0.8rem; color: var(--gold); }
 
-position: absolute;
-    bottom: 20px;
-    left: -20px;
-    background: rgba(18, 22, 28, 0.95);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
-    padding: 12px 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  }
-  .floating-tag strong { display: block; font-size: 1.1rem; color: #fff; }
-  .floating-tag span { font-size: 0.8rem; color: var(--gold); }
+    /* Секции */
+    .section { padding: 80px 8%; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .section-header p { color: var(--text-muted); }
 
-  /* Регалии / Сетка преимуществ */
-  .section { padding: 90px 8%; }
-  .section-header { text-align: center; margin-bottom: 55px; }
-  .section-header h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  .section-header p { color: var(--text-muted); }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 35px 25px;
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(230, 57, 70, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(230, 57, 70, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-  }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 35px 25px;
-    border-radius: 16px;
-    position: relative;
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
-  }
-  .card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(230, 57, 70, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  }
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(230, 57, 70, 0.15);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-  .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .card p { color: var(--text-muted); font-size: 0.95rem; }
+    /* Отдельный премиальный блок про Кайла Сэндерсона */
+    .historic-win-banner {
+      margin-top: 35px;
+      background: linear-gradient(135deg, rgba(30, 24, 15, 0.85) 0%, rgba(18, 22, 28, 0.95) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 18px;
+      padding: 35px 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 10px 30px var(--gold-glow);
+    }
+    .hw-icon {
+      font-size: 3rem;
+      min-width: 70px;
+      height: 70px;
+      background: rgba(212, 175, 55, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+    }
+    .hw-content h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .hw-content p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+    }
 
-  /* Галерея */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
-  }
-  .gallery-item {
-    height: 250px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border);
-  }
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s ease;
-  }
-  .gallery-item:hover img { transform: scale(1.08); }
+    /* Галерея (Сетка 3x2) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      height: 260px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
 
-  /* GM GYM & Локация */
-  .location-card {
-    background: linear-gradient(145deg, #13171d, #1a2029);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 40px;
-  }
-  .location-info { flex: 1.2; min-width: 300px; }
-  .location-info h3 { font-size: 2rem; font-family: 'Oswald', sans-serif; margin-bottom: 15px; }
-  .location-info h3 span { color: var(--accent); }
-  .location-badge {
-    background: #232a35;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: #4ade80;
-    display: inline-block;
-    margin-bottom: 15px;
-  }
-  .address-detail { margin: 15px 0 25px; color: #cbd5e1; }
-  .address-detail strong { color: #fff; display: block; margin-top: 5px; font-size: 1.1rem; }
-  
-  .contact-box {
-    flex: 0.9;
-    min-width: 280px;
-    background: rgba(11, 13, 16, 0.6);
-    padding: 30px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    text-align: center;
-  }
-  .contact-box h4 { font-size: 1.3rem; margin-bottom: 15px; }
-  .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-  .c-link {
-    display: block;
-    background: #1c222b;
-    padding: 12px;
-    border-radius: 8px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    border: 1px solid var(--border);
-    transition: 0.3s;
-  }
-  .c-link:hover { border-color: var(--accent); color: var(--accent); }
+    /* Локация и Контакты */
+    .location-card {
+      background: linear-gradient(145deg, #13171d, #1a2029);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 45px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .location-info { flex: 1.2; min-width: 300px; }
+    .location-info h3 { font-size: 2.2rem; font-family: 'Oswald', sans-serif; margin-bottom: 15px; }
+    .location-info h3 span { color: var(--accent); }
+    .address-detail { margin: 20px 0; color: #cbd5e1; }
+    .address-detail strong { color: #fff; display: block; margin-top: 5px; font-size: 1.2rem; }
+    
+    .contact-box {
+      flex: 0.9;
+      min-width: 280px;
+      background: rgba(11, 13, 16, 0.7);
+      padding: 35px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .contact-box h4 { font-size: 1.4rem; margin-bottom: 12px; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .c-link {
+      display: block;
+      background: #1c222b;
+      padding: 14px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+    .c-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-  footer {
-    text-align: center;
-    padding: 30px;
-    border-top: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.85rem;
-  }
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
 
-  @media (max-width: 900px) {
-    .hero { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
-    .hero-sub { margin-left: auto; margin-right: auto; }
-    .hero-actions { justify-content: center; }
-    .hero-img-frame { width: 300px; height: 380px; }
-
-.floating-tag { left: 50%; transform: translateX(-50%); bottom: -20px; width: 80%; }
-  }
-</style>
+    @media (max-width: 900px) {
+      .hero { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-img-frame { width: 300px; height: 380px; }
+      .floating-tag { left: 50%; transform: translateX(-50%); bottom: -20px; width: 85%; }
+      .historic-win-banner { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -338,41 +364,60 @@ position: absolute;
       <div class="card">
         <div class="card-icon">🏆</div>
         <h3>Звания и титулы</h3>
-        <p>Мастер спорта международного класса по вольной борьбе, победитель чемпионата мира по военнослужащим, призер первенства России, победитель Кубка Азии, победитель международных турниров серии гран-при и категории «А». Победитель Турнира гран-при на призы Олимпийских чемпионов братьев Белоглазовых. Так же подготовил многих известных профессиональных спортсменов в своем деле таких как: Боец UFC Никита Крылов, Джеф Монсон, Эдуард Вартанян, Дави Рамос и многих других ребят.</p>
+        <p>Мастер спорта международного класса (МСМК) по вольной борьбе, чемпион мира среди военнослужащих, призер первенства России, победитель Кубка Азии, победитель турниров серии Гран-при категории «А» и турнира на призы Олимпийских чемпионов братьев Белоглазовых.</p>
       </div>
 
       <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Борцовская база</h3>
-        <p>Адаптация техники классической школы под цели ММА, грэпплинга и самообороны: проходы в две ноги, контроль у сетки и защита от переводов.</p>
+        <div class="card-icon">🥋</div>
+        <h3>Тренер чемпионов</h3>
+        <p>Готовил элиту мировых единоборств и ММА к титульным боям: Никита Крылов (UFC), Джефф Монсон, Эдуард Вартанян, Дави Рамос и многие другие профессионалы.</p>
       </div>
 
       <div class="card">
-        <div class="card-icon">🛡️ </div>
+        <div class="card-icon">🛡️</div>
         <h3>Безопасный подход</h3>
-        <p>Пошаговая методика: от базовой страховки и акробатики до полноценных борцовских схваток без травм и перегрузок связок.</p>
+        <p>Пошаговая авторская методика: от базовой страховки, пластики и акробатики до соревновательных борцовских схваток без риска травм связок и суставов.</p>
+      </div>
+    </div>
+
+    <!-- ЗОЛОТОЙ БЛОК: Победа над Кэйлом Сэндерсоном -->
+    <div class="historic-win-banner">
+      <div class="hw-icon">🥇</div>
+      <div class="hw-content">
+        <h3>Историческая победа над Кайлом Сэндерсоном (Cael Sanderson)</h3>
+        <p>
+          Вадим Токаев нанес сенсационное поражение легендарному американцу Кайлу Сэндерсону — Олимпийскому чемпиону (Афины 2004) и единственному в истории четырехкратному непобежденному чемпиону дивизиона NCAA (159 побед — 0 поражений). Этот поединок навсегда вошел в летопись мирового борцовского ковра и подтвержден в официальной биографии Сэндерсона.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Фотогалерея с тренировок -->
+  <!-- Фотогалерея с тренировок (6 фото) -->
   <section class="section">
     <div class="section-header">
       <h2>Атмосфера на ковре</h2>
-      <p>Рабочий ритм, схватки, награждения и тренировочный процесс</p>
+      <p>Рабочий ритм, схватки, подготовка бойцов и тренировочный процесс</p>
     </div>
+    
+    <!-- Положите файлы foto1.jpg, foto2.jpg и т.д. рядом с index.html или укажите свои имена -->
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600" alt="Награждение">
+        <img src="foto1.jpg" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600'" alt="Тренировочный процесс">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=600" alt="Отработка приемов">
+        <img src="foto2.jpg" onerror="this.src='https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=600'" alt="Отработка приемов">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600" alt="Силовая подготовка">
+        <img src="foto3.jpg" onerror="this.src='https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600'" alt="Спарринги">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600" alt="Зал GM GYM">
+        <img src="foto4.jpg" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600'" alt="Зал GM GYM">
+      </div>
+      <div class="gallery-item">
+        <img src="foto5.jpg" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600'" alt="Награждения">
+      </div>
+      <div class="gallery-item">
+        <img src="foto6.jpg" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600'" alt="Функциональная подготовка">
       </div>
     </div>
   </section>
@@ -381,26 +426,20 @@ position: absolute;
   <section class="section" id="contacts">
     <div class="location-card">
       <div class="location-info">
-         <!-- <span class="location-badge">● Идет набор в группы</span> -->
         <h3>Клуб единоборств <span>GM GYM</span></h3>
-         <!--<p style="color: var(--text-muted);">
-          Один из лучших залов Москвы с профессиональным олимпийским покрытием, зоной кроссфита, сауной и комфортными раздевалками.
-        </p> -->
-        
         <div class="address-detail">
           Локация:
-          <strong>г. Москва,  Скаковая ул., 36</strong>
-          <span style="font-size: 0.9rem; color: var(--text-muted);">м. Белорусская</span>
+          <strong>г. Москва, Скаковая ул., 36</strong>
+          <span style="font-size: 0.95rem; color: var(--text-muted);">м. Белорусская</span>
         </div>
       </div>
 
       <div class="contact-box">
         <h4>Запись на тренировку</h4>
-
         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Напишите тренеру напрямую для подбора времени и формата занятий</p>
         <div class="contact-links">
-          <a href="https://t.me/ToniBars" target="_blank" class="c-link">💬  Написать в Telegram</a>
-          <a href="tel:+79262046918" class="c-link">📞  Позвонить тренеру</a>
+          <a href="https://t.me/ToniBars" target="_blank" class="c-link">💬 Написать в Telegram</a>
+          <a href="tel:+79262046918" class="c-link">📞 Позвонить тренеру</a>
         </div>
       </div>
     </div>
