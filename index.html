@@ -204,7 +204,7 @@
     .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
     .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-    /* Отдельный премиальный блок про Кайла Сэндерсона */
+    /* Премиальный блок про Кайла Сэндерсона */
     .historic-win-banner {
       margin-top: 35px;
       background: linear-gradient(135deg, rgba(30, 24, 15, 0.85) 0%, rgba(18, 22, 28, 0.95) 100%);
@@ -238,6 +238,41 @@
     .hw-content p {
       color: #cbd5e1;
       font-size: 0.98rem;
+    }
+
+    /* Цитата и теги легенд */
+    .quote-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--gold);
+      padding: 15px 20px;
+      margin: 15px 0 20px;
+      font-style: italic;
+      color: #d1d5db;
+      border-radius: 0 8px 8px 0;
+    }
+    .quote-box strong {
+      color: #fff;
+      font-style: normal;
+    }
+    .legend-names {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .legend-pill {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .legend-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
     }
 
     /* Галерея (Сетка 3x2) */
@@ -380,14 +415,32 @@
       </div>
     </div>
 
-    <!-- ЗОЛОТОЙ БЛОК: Победа над Кэйлом Сэндерсоном -->
+    <!-- ЗОЛОТОЙ БЛОК: Историческая победа над Кайлом Сэндерсоном -->
     <div class="historic-win-banner">
       <div class="hw-icon">🥇</div>
       <div class="hw-content">
-        <h3>Историческая победа над Кайлом Сэндерсоном (Cael Sanderson)</h3>
-        <p>
-          Вадим Токаев нанес сенсационное поражение легендарному американцу Кайлу Сэндерсону — Олимпийскому чемпиону (Афины 2004) и единственному в истории четырехкратному непобежденному чемпиону дивизиона NCAA (159 побед — 0 поражений). Этот поединок навсегда вошел в летопись мирового борцовского ковра и подтвержден в официальной биографии Сэндерсона.
+        <h3>Исторический факт: победа над легендой США Кайлом Сэндерсоном</h3>
+        
+        <p style="margin-bottom: 12px;">
+          Кайл Сэндерсон (Cael Sanderson) — Олимпийский чемпион и единственный в истории борец с феноменальным непобежденным рекордом в NCAA (159–0). Список атлетов, побеждавших Сэндерсона на международном ковре, состоит из считанных мировых легенд.
         </p>
+
+        <!-- Цитата из спортивной хроники -->
+        <div class="quote-box">
+          «После окончания студенческой карьеры Сэндерсон пробивал свой путь к золоту Олимпиады. В 2003 году поражения ему смогли нанести лишь единицы: Йоэль Ромеро (Куба), <strong>Вадим Токаев (Россия, Гран-при Киева)</strong>, Хаджимурат Гацалов (Россия) и Сажид Сажидов (Россия)».
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Этот результат зафиксирован в официальной международной статистике и биографии американского чемпиона.
+        </p>
+
+        <!-- Интерактивные плашки легенд -->
+        <div class="legend-names">
+          <span class="legend-pill active">★ Вадим Токаев</span>
+          <span class="legend-pill">Йоэль Ромеро</span>
+          <span class="legend-pill">Хаджимурат Гацалов</span>
+          <span class="legend-pill">Сажид Сажидов</span>
+        </div>
       </div>
     </div>
   </section>
@@ -399,7 +452,6 @@
       <p>Рабочий ритм, схватки, подготовка бойцов и тренировочный процесс</p>
     </div>
     
-    <!-- Положите файлы foto1.jpg, foto2.jpg и т.д. рядом с index.html или укажите свои имена -->
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="foto1.jpg" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600'" alt="Тренировочный процесс">
