@@ -239,7 +239,38 @@
       color: #cbd5e1;
       font-size: 0.98rem;
     }
-
+  /* Стили для блока соперничества с элитой */
+    .opponents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+    .opponent-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .opponent-status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .status-win { color: #4ade80; } /* Зеленый - победа */
+    .status-rival { color: var(--gold); } /* Золотой - схватки с легендами */
+    .opponent-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .opponent-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
     /* Цитата и теги легенд */
     .quote-box {
       background: rgba(255, 255, 255, 0.03);
@@ -415,31 +446,46 @@
       </div>
     </div>
 
-    <!-- ЗОЛОТОЙ БЛОК: Историческая победа над Кайлом Сэндерсоном -->
-    <div class="historic-win-banner">
-      <div class="hw-icon">🥇</div>
-      <div class="hw-content">
-        <h3>Исторический факт: победа над легендой США Кайлом Сэндерсоном</h3>
-        
-        <p style="margin-bottom: 12px;">
-          Кайл Сэндерсон (Cael Sanderson) — Олимпийский чемпион и единственный в истории борец с феноменальным непобежденным рекордом в NCAA (159–0). Список атлетов, побеждавших Сэндерсона на международном ковре, состоит из считанных мировых легенд.
-        </p>
+<!-- ЗОЛОТОЙ БЛОК: Противостояние с мировой элитой -->
+    <div class="historic-win-banner" style="display: block;">
+      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
+        <div class="hw-icon" style="min-width: 60px; height: 60px; font-size: 2.2rem;">🥇</div>
+        <div>
+          <h3 style="margin-bottom: 0;">Ковер высшей лиги: победы над мировыми легендами</h3>
+          <p style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Опыт схваток на олимпийском и международном уровне</p>
+        </div>
+      </div>
+      
+      <p style="margin-bottom: 12px; color: #cbd5e1;">
+        Вадим Токаев провел карьеру в самой конкурентной мировой эпохе вольной борьбы, выходя на ковер против величайших атлетов планеты и нанося им исторические поражения.
+      </p>
 
-        <!-- Цитата из спортивной хроники -->
-        <div class="quote-box">
-          «После окончания студенческой карьеры Сэндерсон пробивал свой путь к золоту Олимпиады. В 2003 году поражения ему смогли нанести лишь единицы: Йоэль Ромеро (Куба), <strong>Вадим Токаев (Россия, Гран-при Киева)</strong>, Хаджимурат Гацалов (Россия) и Сажид Сажидов (Россия)».
+      <!-- Цитата из официальной хроники Кайла Сэндерсона -->
+      <div class="quote-box">
+        «После окончания студенческой карьеры Сэндерсон пробивал свой путь к золоту Олимпиады. В 2003 году поражения легендарному американцу смогли нанести лишь единицы: Йоэль Ромеро (Куба), <strong>Вадим Токаев (Россия, Гран-при Киева)</strong>, Хаджимурат Гацалов (Россия) и Сажид Сажидов (Россия)».
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; font-style: normal;">
+          — Официальная хроника карьеры непобежденного 4-кратного чемпиона NCAA (159-0) и Олимпийского чемпиона Кайла Сэндерсона (США)
+        </div>
+      </div>
+
+      <!-- Сетка ключевых побед и принципиальных схваток -->
+      <div class="opponents-grid">
+        <div class="opponent-card">
+          <div class="opponent-status status-win">✓ Историческая победа</div>
+          <div class="opponent-name">Кайл Сэндерсон 🇺🇸</div>
+          <div class="opponent-desc">Олимпийский чемпион (2004), 4-кратный чемпион NCAA с вечным рекордом 159–0.</div>
         </div>
 
-        <p style="font-size: 0.9rem; color: var(--text-muted);">
-          Этот результат зафиксирован в официальной международной статистике и биографии американского чемпиона.
-        </p>
+        <div class="opponent-card">
+          <div class="opponent-status status-win">✓ Победа на ковре</div>
+          <div class="opponent-name">Тарас Данько 🇺🇦</div>
+          <div class="opponent-desc">Бронзовый призёр Олимпийских игр (Пекин-2008), чемпион Европы, призёр чемпионата мира.</div>
+        </div>
 
-        <!-- Интерактивные плашки легенд -->
-        <div class="legend-names">
-          <span class="legend-pill active">★ Вадим Токаев</span>
-          <span class="legend-pill">Йоэль Ромеро</span>
-          <span class="legend-pill">Хаджимурат Гацалов</span>
-          <span class="legend-pill">Сажид Сажидов</span>
+        <div class="opponent-card">
+          <div class="opponent-status status-rival">⚡ Бескомпромиссная борьба</div>
+          <div class="opponent-name">Мировая элита вольного стиля</div>
+          <div class="opponent-desc">Конкурентные схватки с ведущими чемпионами мира, Европы и сборной России в пиковые годы.</div>
         </div>
       </div>
     </div>
