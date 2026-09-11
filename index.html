@@ -34,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 8%;
+      padding: 16px 8%;
       position: sticky;
       top: 0;
       backdrop-filter: blur(12px);
@@ -44,6 +44,37 @@
     }
     .logo { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
     .logo span { color: var(--accent); }
+    
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Переключалка языков */
+    .lang-switcher {
+      display: flex;
+      background: #161b22;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
     .nav-btn {
       background: var(--accent);
       color: #fff;
@@ -204,22 +235,25 @@
     .card h3 { font-size: 1.25rem; margin-bottom: 12px; }
     .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-    /* Премиальный блок про Кайла Сэндерсона */
+    /* Премиальный блок про Кайла Сэндерсона и соперников */
     .historic-win-banner {
       margin-top: 35px;
       background: linear-gradient(135deg, rgba(30, 24, 15, 0.85) 0%, rgba(18, 22, 28, 0.95) 100%);
       border: 1px solid rgba(212, 175, 55, 0.35);
       border-radius: 18px;
       padding: 35px 30px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
       box-shadow: 0 10px 30px var(--gold-glow);
     }
+    .hw-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
     .hw-icon {
-      font-size: 3rem;
-      min-width: 70px;
-      height: 70px;
+      font-size: 2.2rem;
+      min-width: 60px;
+      height: 60px;
       background: rgba(212, 175, 55, 0.12);
       border-radius: 50%;
       display: flex;
@@ -227,19 +261,25 @@
       justify-content: center;
       border: 1px solid var(--gold);
     }
-    .hw-content h3 {
+    .hw-title {
       font-family: 'Oswald', sans-serif;
       font-size: 1.5rem;
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 8px;
     }
-    .hw-content p {
-      color: #cbd5e1;
-      font-size: 0.98rem;
+    .quote-box {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--gold);
+      padding: 15px 20px;
+      margin: 15px 0 20px;
+      font-style: italic;
+      color: #d1d5db;
+      border-radius: 0 8px 8px 0;
     }
-  /* Стили для блока соперничества с элитой */
+    .quote-box strong { color: #fff; font-style: normal; }
+
+    /* Сетка соперников и SVG-флаги */
     .opponents-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -259,9 +299,12 @@
       font-weight: 700;
       margin-bottom: 5px;
     }
-    .status-win { color: #4ade80; } /* Зеленый - победа */
-    .status-rival { color: var(--gold); } /* Золотой - схватки с легендами */
+    .status-win { color: #4ade80; }
+    .status-rival { color: var(--gold); }
     .opponent-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
@@ -271,42 +314,19 @@
       color: var(--text-muted);
       margin-top: 4px;
     }
-    /* Цитата и теги легенд */
-    .quote-box {
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid var(--gold);
-      padding: 15px 20px;
-      margin: 15px 0 20px;
-      font-style: italic;
-      color: #d1d5db;
-      border-radius: 0 8px 8px 0;
-    }
-    .quote-box strong {
-      color: #fff;
-      font-style: normal;
-    }
-    .legend-names {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .legend-pill {
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .legend-pill.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
+
+    /* Векторный флаг (SVG) для кроссплатформенности */
+    .flag-icon {
+      width: 20px;
+      height: 14px;
+      border-radius: 2px;
+      object-fit: cover;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    /* Галерея (Сетка 3x2) */
+    /* Галерея */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -382,7 +402,7 @@
       .hero-actions { justify-content: center; }
       .hero-img-frame { width: 300px; height: 380px; }
       .floating-tag { left: 50%; transform: translateX(-50%); bottom: -20px; width: 85%; }
-      .historic-win-banner { flex-direction: column; text-align: center; }
+      .hw-header { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -391,20 +411,27 @@
   <!-- Навигация -->
   <nav>
     <div class="logo">ТОКАЕВ <span>WRESTLING</span></div>
-    <a href="#contacts" class="nav-btn">Записаться</a>
+    <div class="nav-right">
+      <!-- Переключатель языков -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contacts" class="nav-btn" data-i18n="nav_btn">Записаться</a>
+    </div>
   </nav>
 
   <!-- Hero Секция -->
   <section class="hero">
     <div class="hero-content">
-      <div class="badge">Тренер клуба GM GYM</div>
-      <h1>Вадим <span>Токаев</span></h1>
-      <p class="hero-sub">
+      <div class="badge" data-i18n="hero_badge">Тренер клуба GM GYM</div>
+      <h1><span data-i18n="hero_name_vadim">Вадим</span> <span style="color:#fff;" data-i18n="hero_name_tokaev">Токаев</span></h1>
+      <p class="hero-sub" data-i18n="hero_desc">
         Осетинская школа вольной борьбы в Москве. Индивидуальный разбор техники, развитие функциональной выносливости и борцовского мышления.
       </p>
       <div class="hero-actions">
-        <a href="#contacts" class="btn-main">Записаться на ковер</a>
-        <a href="#about" class="btn-outline">Регалии и опыт</a>
+        <a href="#contacts" class="btn-main" data-i18n="btn_book">Записаться на ковер</a>
+        <a href="#about" class="btn-outline" data-i18n="btn_about">Регалии и опыт</a>
       </div>
     </div>
 
@@ -414,7 +441,7 @@
       </div>
       <div class="floating-tag">
         <strong>GM GYM • Москва</strong>
-        <span>★ Персональный & групповой тренинг</span>
+        <span data-i18n="tag_subtitle">★ Персональный & групповой тренинг</span>
       </div>
     </div>
   </section>
@@ -422,100 +449,108 @@
   <!-- Регалии и Опыт -->
   <section class="section" id="about" style="background: rgba(255,255,255,0.01);">
     <div class="section-header">
-      <h2>Регалии и экспертиза</h2>
-      <p>Спортивный фундамент и проверенная методология тренировочного процесса</p>
+      <h2 data-i18n="about_title">Регалии и экспертиза</h2>
+      <p data-i18n="about_subtitle">Спортивный фундамент и проверенная методология тренировочного процесса</p>
     </div>
 
     <div class="grid-3">
       <div class="card">
         <div class="card-icon">🏆</div>
-        <h3>Звания и титулы</h3>
-        <p>Мастер спорта международного класса (МСМК) по вольной борьбе, чемпион мира среди военнослужащих, призер первенства России, победитель Кубка Азии, победитель турниров серии Гран-при категории «А» и турнира на призы Олимпийских чемпионов братьев Белоглазовых.</p>
+        <h3 data-i18n="card1_title">Звания и титулы</h3>
+        <p data-i18n="card1_desc">Мастер спорта международного класса (МСМК) по вольной борьбе, чемпион мира среди военнослужащих, призер первенства России, победитель Кубка Азии, победитель турниров серии Гран-при категории «А» и турнира на призы Олимпийских чемпионов братьев Белоглазовых.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">🥋</div>
-        <h3>Тренер чемпионов</h3>
-        <p>Готовил элиту мировых единоборств и ММА к титульным боям: Никита Крылов (UFC), Джефф Монсон, Эдуард Вартанян, Дави Рамос и многие другие профессионалы.</p>
+        <h3 data-i18n="card2_title">Тренер чемпионов</h3>
+        <p data-i18n="card2_desc">Готовил элиту мировых единоборств и ММА к титульным боям: Никита Крылов (UFC), Джефф Монсон, Эдуард Вартанян, Дави Рамос и многие другие профессионалы.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">🛡️</div>
-        <h3>Безопасный подход</h3>
-        <p>Пошаговая авторская методика: от базовой страховки, пластики и акробатики до соревновательных борцовских схваток без риска травм связок и суставов.</p>
+        <h3 data-i18n="card3_title">Безопасный подход</h3>
+        <p data-i18n="card3_desc">Пошаговая авторская методика: от базовой страховки, пластики и акробатики до соревновательных борцовских схваток без риска травм связок и суставов.</p>
       </div>
     </div>
 
-<!-- ЗОЛОТОЙ БЛОК: Противостояние с мировой элитой -->
-    <div class="historic-win-banner" style="display: block;">
-      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-        <div class="hw-icon" style="min-width: 60px; height: 60px; font-size: 2.2rem;">🥇</div>
+    <!-- БЛОК СОВЕРНИЧЕСТВА С ЭЛИТОЙ -->
+    <div class="historic-win-banner">
+      <div class="hw-header">
+        <div class="hw-icon">🥇</div>
         <div>
-          <h3 style="margin-bottom: 0;">Ковер высшей лиги: победы над мировыми легендами</h3>
-          <p style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Опыт схваток на олимпийском и международном уровне</p>
+          <h3 class="hw-title" data-i18n="hw_title">Ковер высшей лиги: победы над мировыми легендами</h3>
+          <p style="color: var(--gold); font-size: 0.9rem; font-weight: 600;" data-i18n="hw_sub">Опыт схваток на олимпийском и международном уровне</p>
         </div>
       </div>
       
-      <p style="margin-bottom: 12px; color: #cbd5e1;">
+      <p style="margin-bottom: 12px; color: #cbd5e1;" data-i18n="hw_p">
         Вадим Токаев провел карьеру в самой конкурентной мировой эпохе вольной борьбы, выходя на ковер против величайших атлетов планеты и нанося им исторические поражения.
       </p>
 
-      <!-- Цитата из официальной хроники Кайла Сэндерсона -->
-      <div class="quote-box">
+      <!-- Цитата из биографии Сэндерсона -->
+      <div class="quote-box" data-i18n="quote_text">
         «После окончания студенческой карьеры Сэндерсон пробивал свой путь к золоту Олимпиады. В 2003 году поражения легендарному американцу смогли нанести лишь единицы: Йоэль Ромеро (Куба), <strong>Вадим Токаев (Россия, Гран-при Киева)</strong>, Хаджимурат Гацалов (Россия) и Сажид Сажидов (Россия)».
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; font-style: normal;">
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; font-style: normal;" data-i18n="quote_sub">
           — Официальная хроника карьеры непобежденного 4-кратного чемпиона NCAA (159-0) и Олимпийского чемпиона Кайла Сэндерсона (США)
         </div>
       </div>
 
-      <!-- Сетка ключевых побед и принципиальных схваток -->
+      <!-- Сетка ключевых побед с SVG-флагами -->
       <div class="opponents-grid">
         <div class="opponent-card">
-          <div class="opponent-status status-win">✓ Историческая победа</div>
-          <div class="opponent-name">Кайл Сэндерсон 🇺🇸</div>
-          <div class="opponent-desc">Олимпийский чемпион (2004), 4-кратный чемпион NCAA с вечным рекордом 159–0.</div>
+          <div class="opponent-status status-win" data-i18n="win_badge_1">✓ Историческая победа</div>
+          <div class="opponent-name">
+            <span data-i18n="sanderson_name">Кайл Сэндерсон</span>
+            <!-- Надежный SVG флаг США -->
+            <img class="flag-icon" src="https://flagcdn.com/w40/us.png" alt="USA">
+          </div>
+          <div class="opponent-desc" data-i18n="sanderson_desc">Олимпийский чемпион (2004), 4-кратный чемпион NCAA с вечным рекордом 159–0.</div>
         </div>
 
         <div class="opponent-card">
-          <div class="opponent-status status-win">✓ Победа на ковре</div>
-          <div class="opponent-name">Тарас Данько 🇺🇦</div>
-          <div class="opponent-desc">Бронзовый призёр Олимпийских игр (Пекин-2008), чемпион Европы, призёр чемпионата мира.</div>
+          <div class="opponent-status status-win" data-i18n="win_badge_2">✓ Победа на ковре</div>
+          <div class="opponent-name">
+            <span data-i18n="danko_name">Тарас Данько</span>
+            <!-- Надежный SVG флаг Украины -->
+            <img class="flag-icon" src="https://flagcdn.com/w40/ua.png" alt="Ukraine">
+          </div>
+          <div class="opponent-desc" data-i18n="danko_desc">Бронзовый призёр Олимпийских игр (Пекин-2008), чемпион Европы, призёр чемпионата мира.</div>
         </div>
 
         <div class="opponent-card">
-          <div class="opponent-status status-rival">⚡ Бескомпромиссная борьба</div>
-          <div class="opponent-name">Мировая элита вольного стиля</div>
-          <div class="opponent-desc">Конкурентные схватки с ведущими чемпионами мира, Европы и сборной России в пиковые годы.</div>
+          <div class="opponent-status status-rival" data-i18n="win_badge_3">⚡ Бескомпромиссная борьба</div>
+          <div class="opponent-name" data-i18n="elite_name">Мировая элита вольного стиля</div>
+          <div class="opponent-desc" data-i18n="elite_desc">Конкурентные схватки с ведущими чемпионами мира, Европы и сборной России в пиковые годы.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Фотогалерея с тренировок (6 фото) -->
+  <!-- Фотогалерея с тренировок -->
   <section class="section">
     <div class="section-header">
-      <h2>Атмосфера на ковре</h2>
-      <p>Рабочий ритм, схватки, подготовка бойцов и тренировочный процесс</p>
+      <h2 data-i18n="gallery_title">Атмосфера на ковре</h2>
+      <p data-i18n="gallery_subtitle">Рабочий ритм, схватки, подготовка бойцов и тренировочный процесс</p>
     </div>
     
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="foto1.jpg" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600'" alt="Тренировочный процесс">
+        <img src="foto1.jpg" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600'" alt="Training">
       </div>
       <div class="gallery-item">
-        <img src="foto2.jpg" onerror="this.src='https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=600'" alt="Отработка приемов">
+        <img src="foto2.jpg" onerror="this.src='https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=600'" alt="Technique">
       </div>
       <div class="gallery-item">
-        <img src="foto3.jpg" onerror="this.src='https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600'" alt="Спарринги">
+        <img src="foto3.jpg" onerror="this.src='https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600'" alt="Sparring">
       </div>
       <div class="gallery-item">
-        <img src="foto4.jpg" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600'" alt="Зал GM GYM">
+        <img src="foto4.jpg" onerror="this.src='https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=600'" alt="GM GYM">
       </div>
       <div class="gallery-item">
-        <img src="foto5.jpg" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600'" alt="Награждения">
+        <img src="foto5.jpg" onerror="this.src='https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600'" alt="Awards">
       </div>
       <div class="gallery-item">
-        <img src="foto6.jpg" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600'" alt="Функциональная подготовка">
+        <img src="foto6.jpg" onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600'" alt="Conditioning">
       </div>
     </div>
   </section>
@@ -524,28 +559,134 @@
   <section class="section" id="contacts">
     <div class="location-card">
       <div class="location-info">
-        <h3>Клуб единоборств <span>GM GYM</span></h3>
+        <h3 data-i18n="gym_title">Клуб единоборств <span>GM GYM</span></h3>
         <div class="address-detail">
-          Локация:
-          <strong>г. Москва, Скаковая ул., 36</strong>
-          <span style="font-size: 0.95rem; color: var(--text-muted);">м. Белорусская</span>
+          <span data-i18n="location_label">Локация:</span>
+          <strong data-i18n="location_address">г. Москва, Скаковая ул., 36</strong>
+          <span style="font-size: 0.95rem; color: var(--text-muted);" data-i18n="location_sub">м. Белорусская</span>
         </div>
       </div>
 
       <div class="contact-box">
-        <h4>Запись на тренировку</h4>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">Напишите тренеру напрямую для подбора времени и формата занятий</p>
+        <h4 data-i18n="contact_title">Запись на тренировку</h4>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;" data-i18n="contact_sub">
+          Напишите тренеру напрямую для подбора времени и формата занятий
+        </p>
         <div class="contact-links">
-          <a href="https://t.me/ToniBars" target="_blank" class="c-link">💬 Написать в Telegram</a>
-          <a href="tel:+79262046918" class="c-link">📞 Позвонить тренеру</a>
+          <a href="https://t.me/ToniBars" target="_blank" class="c-link" data-i18n="c_tg">💬 Написать в Telegram</a>
+          <a href="tel:+79262046918" class="c-link" data-i18n="c_call">📞 Позвонить тренеру</a>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Вадим Токаев | GM GYM Wrestling. Все права защищены.</p>
+    <p>© 2026 Вадим Токаев | GM GYM Wrestling. All rights reserved.</p>
   </footer>
 
+  <!-- Скрипт перевода -->
+  <script>
+    const translations = {
+      ru: {
+        nav_btn: "Записаться",
+        hero_badge: "Тренер клуба GM GYM",
+        hero_name_vadim: "Вадим",
+        hero_name_tokaev: "Токаев",
+        hero_desc: "Осетинская школа вольной борьбы в Москве. Индивидуальный разбор техники, развитие функциональной выносливости и борцовского мышления.",
+        btn_book: "Записаться на ковер",
+        btn_about: "Регалии и опыт",
+        tag_subtitle: "★ Персональный & групповой тренинг",
+        about_title: "Регалии и экспертиза",
+        about_subtitle: "Спортивный фундамент и проверенная методология тренировочного процесса",
+        card1_title: "Звания и титулы",
+        card1_desc: "Мастер спорта международного класса (МСМК) по вольной борьбе, чемпион мира среди военнослужащих, призер первенства России, победитель Кубка Азии, победитель турниров серии Гран-при категории «А» и турнира на призы Олимпийских чемпионов братьев Белоглазовых.",
+        card2_title: "Тренер чемпионов",
+        card2_desc: "Готовил элиту мировых единоборств и ММА к титульным боям: Никита Крылов (UFC), Джефф Монсон, Эдуард Вартанян, Дави Рамос и многие другие профессионалы.",
+        card3_title: "Безопасный подход",
+        card3_desc: "Пошаговая авторская методика: от базовой страховки, пластики и акробатики до соревновательных борцовских схваток без риска травм связок и суставов.",
+        hw_title: "Ковер высшей лиги: победы над мировыми легендами",
+        hw_sub: "Опыт схваток на олимпийском и международном уровне",
+        hw_p: "Вадим Токаев провел карьеру в самой конкурентной мировой эпохе вольной борьбы, выходя на ковер против величайших атлетов планеты и нанося им исторические поражения.",
+        quote_text: "«После окончания студенческой карьеры Сэндерсон пробивал свой путь к золоту Олимпиады. В 2003 году поражения легендарному американцу смогли нанести лишь единицы: Йоэль Ромеро (Куба), <strong>Вадим Токаев (Россия, Гран-при Киева)</strong>, Хаджимурат Гацалов (Россия) и Сажид Сажидов (Россия)».",
+        quote_sub: "— Официальная хроника карьеры непобежденного 4-кратного чемпиона NCAA (159-0) и Олимпийского чемпиона Кайла Сэндерсона (США)",
+        win_badge_1: "✓ Историческая победа",
+        sanderson_name: "Кайл Сэндерсон",
+        sanderson_desc: "Олимпийский чемпион (2004), 4-кратный чемпион NCAA с вечным рекордом 159–0.",
+        win_badge_2: "✓ Победа на ковре",
+        danko_name: "Тарас Данько",
+        danko_desc: "Бронзовый призёр Олимпийских игр (Пекин-2008), чемпион Европы, призёр чемпионата мира.",
+        win_badge_3: "⚡ Бескомпромиссная борьба",
+        elite_name: "Мировая элита вольного стиля",
+        elite_desc: "Конкурентные схватки с ведущими чемпионами мира, Европы и сборной России в пиковые годы.",
+        gallery_title: "Атмосфера на ковре",
+        gallery_subtitle: "Рабочий ритм, схватки, подготовка бойцов и тренировочный процесс",
+        gym_title: "Клуб единоборств <span>GM GYM</span>",
+        location_label: "Локация:",
+        location_address: "г. Москва, Скаковая ул., 36",
+        location_sub: "м. Белорусская",
+        contact_title: "Запись на тренировку",
+        contact_sub: "Напишите тренеру напрямую для подбора времени и формата занятий",
+        c_tg: "💬 Написать в Telegram",
+        c_call: "📞 Позвонить тренеру"
+      },
+      en: {
+        nav_btn: "Book Training",
+        hero_badge: "GM GYM Head Wrestling Coach",
+        hero_name_vadim: "Vadim",
+        hero_name_tokaev: "Tokaev",
+        hero_desc: "Elite Ossetian Freestyle Wrestling school in Moscow. Technique breakdown, functional conditioning, and fight-IQ development for all skill levels.",
+        btn_book: "Step on the Mat",
+        btn_about: "Credentials & Record",
+        tag_subtitle: "★ Private & Team Coaching",
+        about_title: "Credentials & Expertise",
+        about_subtitle: "World-class pedigree and battlefield-tested training methodology",
+        card1_title: "Titles & Honors",
+        card1_desc: "International Master of Sports in Freestyle Wrestling. CISM Military World Champion, Russian Nationals medalist, Asian Cup Champion, and multiple Grand Prix Category 'A' winner.",
+        card2_title: "Coach of Champions",
+        card2_desc: "Prepared world MMA elite for championship bouts: Nikita Krylov (UFC), Jeff Monson, Eduard Vartanyan, Davi Ramos, and top-tier combat athletes.",
+        card3_title: "Safe Progression",
+        card3_desc: "Step-by-step system: from fundamental tumbling and injury-prevention drills to full sparring without risking joint or ligament injuries.",
+        hw_title: "World League Mat: Wins Over Olympic Legends",
+        hw_sub: "Competed at the absolute peak of international wrestling",
+        hw_p: "Vadim Tokaev competed in the toughest global era of freestyle wrestling, facing the greatest athletes on earth and handing them landmark defeats.",
+        quote_text: "“When Sanderson focused on freestyle after his college career, he had to work his way up. In 2003, only a select few defeated the American legend: Yoel Romero (Cuba), <strong>Vadim Tokaev (Russia, Kyiv Grand Prix)</strong>, Khadzhimurat Gatsalov (Russia), and Sazhid Sazhidov (Russia).”",
+        quote_sub: "— From the official career chronicle of 4x Undefeated NCAA Champion (159-0) and Olympic Champion Cael Sanderson (USA)",
+        win_badge_1: "✓ Historic Victory",
+        sanderson_name: "Cael Sanderson",
+        sanderson_desc: "Olympic Gold Medalist (2004), 4x undefeated NCAA champion with legendary 159–0 record.",
+        win_badge_2: "✓ Mat Victory",
+        danko_name: "Taras Danko",
+        danko_desc: "Olympic Bronze Medalist (Beijing 2008), European Champion, World Championship Medalist.",
+        win_badge_3: "⚡ Elite Level Rivalry",
+        elite_name: "World Freestyle Wrestling Elite",
+        elite_desc: "Battled toe-to-toe against World & European champions during the golden era of the 84kg division.",
+        gallery_title: "Mat Atmosphere",
+        gallery_subtitle: "Training routine, live wrestling, pro athlete prep, and gym culture",
+        gym_title: "Combat Sports Club <span>GM GYM</span>",
+        location_label: "Location:",
+        location_address: "Moscow, Skakovaya st., 36",
+        location_sub: "Metro Belorusskaya",
+        contact_title: "Book a Session",
+        contact_sub: "Contact Coach Vadim directly to schedule your private or group sessions",
+        c_tg: "💬 Message on Telegram",
+        c_call: "📞 Call the Coach"
+      }
+    };
+
+    function setLang(lang) {
+      // Обновляем состояние кнопок переключателя
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+
+      // Подставляем текст
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+  </script>
 </body>
 </html>
